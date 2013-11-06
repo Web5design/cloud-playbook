@@ -24,7 +24,7 @@
     - deps
 
 - name: Get Runtime Dependency List
-  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -v -e % -e euca -e \/ | sort -u
+  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -E -v -e % -e euca -e \/ -e "postgresql " -e "postgresql-server " -e drbd-utils | sort -u
   register: runtime_deps
   tags:
     - deps
