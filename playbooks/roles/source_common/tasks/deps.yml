@@ -27,7 +27,7 @@
 
 - name: Install Runtime Dependencies
   yum: name={{ item }} state=present
-  with_items: runtime_deps.stdout
+  with_items: runtime_deps.stdout.split("\n")
   tags:
     - deps
 
