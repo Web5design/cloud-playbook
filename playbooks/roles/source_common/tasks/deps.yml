@@ -31,6 +31,11 @@
   tags:
     - deps
 
+- name: Install DHCP
+  yum: name=dhcp state=present
+  tags:
+    - deps
+
 - name: Install SSH Configuration
   copy: src=ssh_config dest=~/.ssh/config
 
