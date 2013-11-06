@@ -20,7 +20,7 @@
     - deps
 
 - name: Get Runtime Dependency List
-  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -v -e % -e euca -e \/ | sort -u
+  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -v -e % -e euca -e \/ -e dhcp41 | sort -u
   register: runtime_deps
   tags:
     - deps
