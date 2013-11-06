@@ -2,4 +2,7 @@
 - include: ntp.yml
 - include: disable_firewall.yml
 - include: user_pubkey.yml
+- name: Disable SELinux Support
+  shell: setenforce 0
+  ignore_errors: yes
 
