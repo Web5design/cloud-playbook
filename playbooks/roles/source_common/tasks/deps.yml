@@ -3,6 +3,10 @@
   template: src=eucalyptus-devel.repo.j2
             dest=/etc/yum.repos.d/eucalyptus-devel.repo
 
+- name: Install Runtime Repository
+  template: src=eucalyptus-runtime.repo.j2
+            dest=/etc/yum.repos.d/eucalyptus-runtime.repo
+
 - include: vddk.yml
   when: install_enterprise == true
 
@@ -20,7 +24,7 @@
     - deps
 
 - name: Get Runtime Dependency List
-  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -v -e % -e euca -e \/ -e dhcp41 | sort -u
+  shell: grep -E "^Requires:" eucalyptus.spec | awk '{print $2}' | grep -v -e % -e euca -e \/ | sort -u
   register: runtime_deps
   tags:
     - deps
@@ -28,11 +32,6 @@
 - name: Install Runtime Dependencies
   yum: name={{ item }} state=present
   with_items: runtime_deps.stdout.split("\n")
-  tags:
-    - deps
-
-- name: Install DHCP
-  yum: name=dhcp state=present
   tags:
     - deps
 
