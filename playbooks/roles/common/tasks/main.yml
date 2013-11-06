@@ -3,5 +3,5 @@
 - include: disable_firewall.yml
 - include: user_pubkey.yml
 - name: Disable SELinux Support
-  selinux: state=disabled
+  shell: setenforce 0
 
