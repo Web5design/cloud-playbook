@@ -4,4 +4,5 @@
 - include: user_pubkey.yml
 - name: Disable SELinux Support
   shell: setenforce 0
+  ignore_errors: yes
 
