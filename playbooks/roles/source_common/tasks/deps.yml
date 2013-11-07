@@ -10,8 +10,11 @@
 - include: vddk.yml
   when: install_enterprise == true
 
-- name: Install Yum Utils
-  yum: name=yum-utils state=present
+- name: Install Tools
+  yum: name={{ item }} state=present
+  with_items:
+    - @development
+    - yum-utils
 
 - name: Download Eucalyptus Spec File
   get_url: url={{ spec_url }} dest=/root/ force=yes
