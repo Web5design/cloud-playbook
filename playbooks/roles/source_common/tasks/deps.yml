@@ -13,8 +13,8 @@
 - name: Install Tools
   yum: name={{ item }} state=present
   with_items:
-    - @development
-    - yum-utils
+    - "@development"
+    - "yum-utils"
 
 - name: Download Eucalyptus Spec File
   get_url: url={{ spec_url }} dest=/root/ force=yes
