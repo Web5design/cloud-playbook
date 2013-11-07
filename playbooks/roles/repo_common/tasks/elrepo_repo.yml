@@ -1,0 +1,10 @@
+---
+- name: Install ELRepo Key
+  copy: src=RPM-GPG-KEY-elrepo.org dest=/etc/pki/rpm-gpg
+  tags:
+    - packages
+
+- name: Install ELRepo Repository
+  copy: src=elrepo.repo dest=/etc/yum.repos.d/elrepo.repo
+  tags:
+    - packages

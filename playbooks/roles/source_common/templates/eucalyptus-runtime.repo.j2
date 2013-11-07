@@ -1,0 +1,15 @@
+#
+# GENERATED FILE, DO NOT EDIT
+# {{ ansible_managed }}
+#
+
+[eucalyptus-runtime]
+name=Eucalyptus Runtime
+{% if runtime_repo_url is defined %}
+baseurl={{ runtime_repo_url }}
+{% else %}
+baseurl=http://packages.release.eucalyptus-systems.com/yum/tags/{{ runtime_repo }}/centos/$releasever/$basearch/
+{% endif %}
+gpgcheck=0
+enabled=1
+

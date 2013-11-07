@@ -1,3 +1,4 @@
 ---
 - include: expire_cache.yml
 - include: epel_repo.yml
+- include: elrepo_repo.yml
