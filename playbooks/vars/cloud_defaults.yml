@@ -8,7 +8,7 @@ san_provider: None
 use_vmware: false
 eucalyptus_prefix: /opt/eucalyptus
 # Used by source builds to determine buildtime and runtime dependencies
-spec_url: https://raw.github.com/eucalyptus/eucalyptus-rpmspec/master/eucalyptus.spec
+spec_url: https://raw.github.com/eucalyptus/eucalyptus-rpmspec/{{eucalyptus_commit_ref}}/eucalyptus.spec
 # Defines where source builds will get runtime dependencies
 runtime_repo_url: http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/
 
